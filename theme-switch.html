@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .theme-switch {
+      --theme-switch-border: 1px;
+      --theme-switch-base: 20px;
+      position: relative;
+      display: inline-block;
+      width: calc(var(--theme-switch-base) * 4);
+      height: calc(var(--theme-switch-base) * 2);
+      border: var(--theme-switch-border) solid gray;
+      border-radius: calc(var(--theme-switch-base) + var(--theme-switch-border));
+      cursor: pointer;
+      background-color: rgb(143, 143, 143);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .theme-switch:hover {}
+
+    .theme-switch input[type="checkbox"] {
+      width: 0;
+      height: 0;
+      border: 0;
+    }
+
+    .theme-switch .moon,
+    .theme-switch .sun {
+      --theme-switch-base-top: 4px;
+      position: absolute;
+      font-size: 24px;
+      top: var(--theme-switch-base-top);
+      width: calc(var(--theme-switch-base) * 2 - var(--theme-switch-base-top) / 2);
+      height: calc(var(--theme-switch-base) * 2 - var(--theme-switch-base-top) / 2);
+      border-radius: var(--theme-switch-base);
+    }
+
+    .theme-switch .moon {
+      left: 10px;
+      background: linear-gradient(145deg, #4d4d4d, #3d3d3d);
+    }
+
+    .theme-switch .sun {
+      right: 10px;
+      background: linear-gradient(145deg, #f8f8f8, #e6e6e6);
+    }
+
+    .theme-switch .icon {
+      margin-top: -4px;
+    }
+
+    .theme-switch .sun .icon::before {
+      content: '☀️';
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>Theme Switcher</h3>
+    <p>Light and dark</p>
+    <div class="theme-switch">
+      <div class="moon">
+        <div class="icon">🌙</div>
+      </div>
+      <div class="sun">
+        <div class="icon"></div>
+      </div>
+      <input type="checkbox" name="theme">
+    </div>
+
+  </div>
+
+  <script>
+    const god = document.getElementById('god');
+    god.onclick = () => {
+      const cur = document.body.getAttribute('theme')
+      document.body.setAttribute('theme', cur === 'dark' ? 'light' : 'dark');
+    }
+
+  </script>
+</body>
+
+</html>
