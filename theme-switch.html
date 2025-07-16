@@ -132,7 +132,6 @@
     .kasukabetsumugi-moon,
     .kasukabetsumugi-sun {
       position: absolute;
-      font-size: var(--kasukabetsumugi-emoji-size);
       top: calc(var(--kasukabetsumugi-pad) + var(--kasukabetsumugi-border));
       width: var(--kasukabetsumugi-emoji-diameter);
       height: var(--kasukabetsumugi-emoji-diameter);
@@ -150,10 +149,12 @@
 
     .kasukabetsumugi-sun .kasukabetsumugi-icon::before {
       content: '☀️';
+      font-size: var(--kasukabetsumugi-emoji-size);
     }
 
     .kasukabetsumugi-moon .kasukabetsumugi-icon::before {
       content: '🌙';
+      font-size: var(--kasukabetsumugi-emoji-size);
     }
 
     .kasukabetsumugi-moon {
