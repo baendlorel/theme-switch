@@ -23,6 +23,7 @@
      */
 
     .theme-switch {
+
       --ts-border: 1px;
       --ts-base: 20px;
       --ts-emoji-size: 20px;
@@ -33,6 +34,9 @@
       --ts-sun-x: calc(var(--ts-width) - var(--ts-emoji-diameter) - var(--ts-pad) - var(--ts-border));
       --ts-moon-x: calc(var(--ts-pad) + var(--ts-border));
       --ts-func: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .theme-switch {
       position: relative;
       display: inline-block;
       width: var(--ts-width);
@@ -48,7 +52,24 @@
       border-color: #8e8e8e;
     }
 
-    .theme-switch:hover {}
+    .theme-switch::before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border-radius: calc(var(--ts-base) + var(--ts-border));
+      pointer-events: none;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.303) 0%, transparent 50%);
+      opacity: 0;
+      transition: all 0.5s;
+      z-index: 10;
+    }
+
+    .theme-switch:hover::before {
+      opacity: 1;
+    }
 
     .dummy {
       width: 0;
