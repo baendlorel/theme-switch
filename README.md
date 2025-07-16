@@ -42,20 +42,28 @@
 
 ### 🚀 使用方法
 
-只需在项目中包含 HTML 文件：
+只需把 html 文件里的所有 style 内容和 下方的 label（需注意 label 的 `for`属性要和 input 的 `id` 一样，方能奏效） 复制到你的 html 中就可以生效：
 
 ```html
-<label class="theme-switch" for="theme">
-  <input type="checkbox" id="theme" name="theme" class="dummy" />
-  <div class="moon"><div class="icon"></div></div>
-  <div class="sun"><div class="icon"></div></div>
-  <div class="stars">
-    <div class="star"></div>
-    <!-- 更多星星... -->
+<label for="theme" class="kasukabetsumugi-theme-switch">
+  <input type="checkbox" id="theme" name="theme" class="kasukabetsumugi-dummy" />
+  <div class="kasukabetsumugi-moon">
+    <div class="kasukabetsumugi-icon"></div>
   </div>
-  <div class="clouds">
-    <div class="cloud"></div>
-    <!-- 更多云朵... -->
+  <div class="kasukabetsumugi-sun">
+    <div class="kasukabetsumugi-icon"></div>
+  </div>
+  <div class="kasukabetsumugi-stars">
+    <div class="kasukabetsumugi-star"></div>
+    <div class="kasukabetsumugi-star"></div>
+    <div class="kasukabetsumugi-star"></div>
+    <div class="kasukabetsumugi-star"></div>
+    <div class="kasukabetsumugi-star"></div>
+  </div>
+  <div class="kasukabetsumugi-clouds">
+    <div class="kasukabetsumugi-cloud"></div>
+    <div class="kasukabetsumugi-cloud"></div>
+    <div class="kasukabetsumugi-cloud"></div>
   </div>
 </label>
 ```
@@ -65,11 +73,11 @@
 组件使用 CSS 自定义属性便于定制：
 
 ```css
-.theme-switch {
-  --ts-base: 20px; /* 基础尺寸单位 */
-  --ts-emoji-size: 20px; /* 图标大小 */
-  --ts-border: 1px; /* 边框宽度 */
-  --ts-pad: 2px; /* 内部填充 */
+.kasukabetsumugi-theme-switch {
+  --kasukabetsumugi-base: 20px; /* 基础尺寸单位 */
+  --kasukabetsumugi-emoji-size: 20px; /* 图标大小 */
+  --kasukabetsumugi-border: 1px; /* 边框宽度 */
+  --kasukabetsumugi-pad: 2px; /* 内部填充 */
 }
 ```
 
@@ -117,20 +125,28 @@ A beautiful and interactive theme switcher component built with pure HTML and CS
 
 ### 🚀 Usage
 
-Simply include the HTML file in your project:
+Simply copy all the style content from the HTML file and the label below (note that the label's `for` attribute must match the input's `id` for it to work properly) into your HTML:
 
 ```html
-<label class="theme-switch" for="theme">
-  <input type="checkbox" id="theme" name="theme" class="dummy" />
-  <div class="moon"><div class="icon"></div></div>
-  <div class="sun"><div class="icon"></div></div>
-  <div class="stars">
-    <div class="star"></div>
-    <!-- More stars... -->
+<label for="theme" class="kasukabetsumugi-theme-switch">
+  <input type="checkbox" id="theme" name="theme" class="kasukabetsumugi-dummy" />
+  <div class="kasukabetsumugi-moon">
+    <div class="kasukabetsumugi-icon"></div>
   </div>
-  <div class="clouds">
-    <div class="cloud"></div>
-    <!-- More clouds... -->
+  <div class="kasukabetsumugi-sun">
+    <div class="kasukabetsumugi-icon"></div>
+  </div>
+  <div class="kasukabetsumugi-stars">
+    <div class="kasukabetsumugi-star"></div>
+    <div class="kasukabetsumugi-star"></div>
+    <div class="kasukabetsumugi-star"></div>
+    <div class="kasukabetsumugi-star"></div>
+    <div class="kasukabetsumugi-star"></div>
+  </div>
+  <div class="kasukabetsumugi-clouds">
+    <div class="kasukabetsumugi-cloud"></div>
+    <div class="kasukabetsumugi-cloud"></div>
+    <div class="kasukabetsumugi-cloud"></div>
   </div>
 </label>
 ```
@@ -140,11 +156,11 @@ Simply include the HTML file in your project:
 The component uses CSS custom properties for easy customization:
 
 ```css
-.theme-switch {
-  --ts-base: 20px; /* Base size unit */
-  --ts-emoji-size: 20px; /* Icon size */
-  --ts-border: 1px; /* Border width */
-  --ts-pad: 2px; /* Internal padding */
+.kasukabetsumugi-theme-switch {
+  --kasukabetsumugi-base: 20px; /* Base size unit */
+  --kasukabetsumugi-emoji-size: 20px; /* Icon size */
+  --kasukabetsumugi-border: 1px; /* Border width */
+  --kasukabetsumugi-pad: 2px; /* Internal padding */
 }
 ```
 
@@ -160,4 +176,4 @@ The component uses CSS custom properties for easy customization:
 
 MIT License - feel free to use in your projects!
 
-**Created with ❤️ by [baendlorel](https://github.com/baendlorel)**
+**Created with ❤️ by [Kasukabe Tsumugi](https://github.com/baendlorel)**
