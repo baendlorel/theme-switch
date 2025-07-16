@@ -22,79 +22,79 @@
      * - Responsive design with proper hover states
      */
 
-    .theme-switch {
+    .kasukabetsumugi-theme-switch {
 
-      --ts-border: 1px;
-      --ts-base: 20px;
-      --ts-emoji-size: 20px;
-      --ts-pad: 2px;
-      --ts-width: calc(var(--ts-base) * 4);
-      --ts-height: calc(var(--ts-base) * 2);
-      --ts-emoji-diameter: calc(var(--ts-base) * 2 - var(--ts-pad) * 2 - var(--ts-border) * 2);
-      --ts-sun-x: calc(var(--ts-width) - var(--ts-emoji-diameter) - var(--ts-pad) - var(--ts-border));
-      --ts-moon-x: calc(var(--ts-pad) + var(--ts-border));
-      --ts-func: cubic-bezier(0.23, 1, 0.32, 1);
+      --kasukabetsumugi-border: 1px;
+      --kasukabetsumugi-base: 20px;
+      --kasukabetsumugi-emoji-size: 20px;
+      --kasukabetsumugi-pad: 2px;
+      --kasukabetsumugi-width: calc(var(--kasukabetsumugi-base) * 4);
+      --kasukabetsumugi-height: calc(var(--kasukabetsumugi-base) * 2);
+      --kasukabetsumugi-emoji-diameter: calc(var(--kasukabetsumugi-base) * 2 - var(--kasukabetsumugi-pad) * 2 - var(--kasukabetsumugi-border) * 2);
+      --kasukabetsumugi-sun-x: calc(var(--kasukabetsumugi-width) - var(--kasukabetsumugi-emoji-diameter) - var(--kasukabetsumugi-pad) - var(--kasukabetsumugi-border));
+      --kasukabetsumugi-moon-x: calc(var(--kasukabetsumugi-pad) + var(--kasukabetsumugi-border));
+      --kasukabetsumugi-func: cubic-bezier(0.23, 1, 0.32, 1);
     }
 
-    .theme-switch {
+    .kasukabetsumugi-theme-switch {
       position: relative;
       display: inline-block;
-      width: var(--ts-width);
-      height: var(--ts-height);
-      border-width: var(--ts-border);
+      width: var(--kasukabetsumugi-width);
+      height: var(--kasukabetsumugi-height);
+      border-width: var(--kasukabetsumugi-border);
       border-style: solid;
-      border-radius: calc(var(--ts-base) + var(--ts-border));
+      border-radius: calc(var(--kasukabetsumugi-base) + var(--kasukabetsumugi-border));
       cursor: pointer;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       overflow: hidden;
-      transition: all 0.8s var(--ts-func);
+      transition: all 0.8s var(--kasukabetsumugi-func);
 
       background-color: #3F3F3F;
       border-color: #8e8e8e;
     }
 
-    .theme-switch::before,
-    .theme-switch::after {
+    .kasukabetsumugi-theme-switch::before,
+    .kasukabetsumugi-theme-switch::after {
       position: absolute;
       content: '';
-      border-radius: calc(var(--ts-base) + var(--ts-border));
+      border-radius: calc(var(--kasukabetsumugi-base) + var(--kasukabetsumugi-border));
       transition: all 0.5s;
       pointer-events: none;
       opacity: 0;
     }
 
-    .theme-switch::before {
+    .kasukabetsumugi-theme-switch::before {
       width: 100%;
       height: 100%;
       top: 0;
       left: 0;
     }
 
-    .theme-switch::after {
+    .kasukabetsumugi-theme-switch::after {
       width: 300%;
       height: 600%;
       top: -250%;
       left: -75%;
     }
 
-    .theme-switch::before {
+    .kasukabetsumugi-theme-switch::before {
       background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.36) 0%, transparent 50%);
       z-index: 10;
     }
 
-    .theme-switch:has(.dummy:not(:checked)):hover::before {
+    .kasukabetsumugi-theme-switch:has(.kasukabetsumugi-dummy:not(:checked)):hover::before {
       opacity: 1;
     }
 
     /* 太阳射线 */
-    .theme-switch::after {
+    .kasukabetsumugi-theme-switch::after {
       background:
         repeating-conic-gradient(rgba(255, 255, 251, 0.26) 0deg 18deg,
           transparent 18deg 40deg);
-      animation: sunRays 12s infinite linear, sunGlow 3s infinite alternate ease-in-out;
+      animation: kasukabetsumugiSunRays 12s infinite linear, kasukabetsumugiSunGlow 3s infinite alternate ease-in-out;
     }
 
-    @keyframes sunRays {
+    @keyframes kasukabetsumugiSunRays {
       0% {
         transform: rotate(0deg);
       }
@@ -104,7 +104,7 @@
       }
     }
 
-    @keyframes sunGlow {
+    @keyframes kasukabetsumugiSunGlow {
       0% {
         opacity: 0;
       }
@@ -114,83 +114,83 @@
       }
     }
 
-    .theme-switch:has(.dummy:checked):hover::after {
+    .kasukabetsumugi-theme-switch:has(.kasukabetsumugi-dummy:checked):hover::after {
       animation-play-state: running;
     }
 
-    .theme-switch:has(.dummy:not(:checked))::after {
+    .kasukabetsumugi-theme-switch:has(.kasukabetsumugi-dummy:not(:checked))::after {
       animation-play-state: paused;
       display: none;
     }
 
-    .dummy {
+    .kasukabetsumugi-dummy {
       width: 0;
       height: 0;
       border: 0;
     }
 
-    .moon,
-    .sun {
+    .kasukabetsumugi-moon,
+    .kasukabetsumugi-sun {
       position: absolute;
-      font-size: var(--ts-emoji-size);
-      top: calc(var(--ts-pad) + var(--ts-border));
-      width: var(--ts-emoji-diameter);
-      height: var(--ts-emoji-diameter);
-      border-radius: var(--ts-base);
-      transition: all 0.5s var(--ts-func);
+      font-size: var(--kasukabetsumugi-emoji-size);
+      top: calc(var(--kasukabetsumugi-pad) + var(--kasukabetsumugi-border));
+      width: var(--kasukabetsumugi-emoji-diameter);
+      height: var(--kasukabetsumugi-emoji-diameter);
+      border-radius: var(--kasukabetsumugi-base);
+      transition: all 0.5s var(--kasukabetsumugi-func);
       z-index: 5;
     }
 
-    .icon::before {
+    .kasukabetsumugi-icon::before {
       position: absolute;
       width: 100%;
       height: 100%;
       text-align: center;
     }
 
-    .sun .icon::before {
+    .kasukabetsumugi-sun .kasukabetsumugi-icon::before {
       content: '☀️';
     }
 
-    .moon .icon::before {
+    .kasukabetsumugi-moon .kasukabetsumugi-icon::before {
       content: '🌙';
     }
 
-    .moon {
-      left: var(--ts-moon-x);
+    .kasukabetsumugi-moon {
+      left: var(--kasukabetsumugi-moon-x);
       background: linear-gradient(145deg, #5a5a5a, #424242);
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
-    .sun {
-      left: var(--ts-sun-x);
+    .kasukabetsumugi-sun {
+      left: var(--kasukabetsumugi-sun-x);
       background: linear-gradient(145deg, #fffac1, #ffd06c);
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
 
     /* 当 checkbox 被选中时的样式 */
-    .dummy:not(:checked)~.moon {
-      left: var(--ts-moon-x);
+    .kasukabetsumugi-dummy:not(:checked)~.kasukabetsumugi-moon {
+      left: var(--kasukabetsumugi-moon-x);
       opacity: 1;
     }
 
-    .dummy:checked~.moon {
-      left: var(--ts-sun-x);
+    .kasukabetsumugi-dummy:checked~.kasukabetsumugi-moon {
+      left: var(--kasukabetsumugi-sun-x);
       opacity: 0;
     }
 
-    .dummy:not(:checked)~.sun {
-      left: var(--ts-moon-x);
+    .kasukabetsumugi-dummy:not(:checked)~.kasukabetsumugi-sun {
+      left: var(--kasukabetsumugi-moon-x);
       opacity: 0;
     }
 
-    .dummy:checked~.sun {
-      left: var(--ts-sun-x);
+    .kasukabetsumugi-dummy:checked~.kasukabetsumugi-sun {
+      left: var(--kasukabetsumugi-sun-x);
       opacity: 1;
     }
 
-    .theme-switch:has(.dummy:checked) {
+    .kasukabetsumugi-theme-switch:has(.kasukabetsumugi-dummy:checked) {
       background-color: #b8f0ff;
       border-color: #fbfbfb;
     }
@@ -198,30 +198,30 @@
 
   <style category="stars">
     /* 添加星星装饰（仅在暗色模式下可见） */
-    .stars {
+    .kasukabetsumugi-stars {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
       opacity: 0;
-      transition: opacity 0.5s var(--ts-func);
+      transition: opacity 0.5s var(--kasukabetsumugi-func);
       z-index: 10;
     }
 
-    .dummy:not(:checked)~.stars {
+    .kasukabetsumugi-dummy:not(:checked)~.kasukabetsumugi-stars {
       opacity: 0.45;
     }
 
-    .star {
+    .kasukabetsumugi-star {
       position: absolute;
       background-color: white;
       border-radius: 50%;
-      animation: twinkle 2.4s infinite alternate;
-      transition: left 0.6s var(--ts-func);
+      animation: kasukabetsumugiTwinkle 2.4s infinite alternate;
+      transition: left 0.6s var(--kasukabetsumugi-func);
     }
 
-    @keyframes twinkle {
+    @keyframes kasukabetsumugiTwinkle {
       0% {
         opacity: 0.2;
       }
@@ -232,7 +232,7 @@
     }
 
     /* 创建一些随机星星 */
-    .star:nth-child(1) {
+    .kasukabetsumugi-star:nth-child(1) {
       width: 2px;
       height: 2px;
       top: 8%;
@@ -240,11 +240,11 @@
       animation-delay: 0.2s;
     }
 
-    .dummy:checked~.stars .star:nth-child(1) {
+    .kasukabetsumugi-dummy:checked~.kasukabetsumugi-stars .kasukabetsumugi-star:nth-child(1) {
       left: 148%;
     }
 
-    .star:nth-child(2) {
+    .kasukabetsumugi-star:nth-child(2) {
       width: 3px;
       height: 3px;
       top: 20%;
@@ -252,11 +252,11 @@
       animation-delay: 0.5s;
     }
 
-    .dummy:checked~.stars .star:nth-child(2) {
+    .kasukabetsumugi-dummy:checked~.kasukabetsumugi-stars .kasukabetsumugi-star:nth-child(2) {
       left: 116%;
     }
 
-    .star:nth-child(3) {
+    .kasukabetsumugi-star:nth-child(3) {
       width: 2px;
       height: 2px;
       top: 72%;
@@ -264,11 +264,11 @@
       animation-delay: 0.8s;
     }
 
-    .dummy:checked~.stars .star:nth-child(3) {
+    .kasukabetsumugi-dummy:checked~.kasukabetsumugi-stars .kasukabetsumugi-star:nth-child(3) {
       left: 151%;
     }
 
-    .star:nth-child(4) {
+    .kasukabetsumugi-star:nth-child(4) {
       width: 3px;
       height: 3px;
       top: 20%;
@@ -276,11 +276,11 @@
       animation-delay: 1.1s;
     }
 
-    .dummy:checked~.stars .star:nth-child(4) {
+    .kasukabetsumugi-dummy:checked~.kasukabetsumugi-stars .kasukabetsumugi-star:nth-child(4) {
       left: 180%;
     }
 
-    .star:nth-child(5) {
+    .kasukabetsumugi-star:nth-child(5) {
       width: 2px;
       height: 2px;
       top: 52%;
@@ -288,38 +288,38 @@
       animation-delay: 1.4s;
     }
 
-    .dummy:checked~.stars .star:nth-child(5) {
+    .kasukabetsumugi-dummy:checked~.kasukabetsumugi-stars .kasukabetsumugi-star:nth-child(5) {
       left: 172%;
     }
   </style>
 
   <style category="clouds">
     /* 添加云朵装饰（仅在明亮模式下可见） */
-    .clouds {
+    .kasukabetsumugi-clouds {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
       opacity: 0;
-      transition: opacity 0.5s var(--ts-func);
+      transition: opacity 0.5s var(--kasukabetsumugi-func);
     }
 
-    .dummy:checked~.clouds {
+    .kasukabetsumugi-dummy:checked~.kasukabetsumugi-clouds {
       opacity: 0.6;
     }
 
-    .cloud {
+    .kasukabetsumugi-cloud {
       position: absolute;
       background-color: rgba(255, 255, 255, 0.8);
       border-radius: 20px;
       animation: float 4s infinite ease-in-out;
-      transition: left 0.8s var(--ts-func);
+      transition: left 0.8s var(--kasukabetsumugi-func);
       scale: 3.5;
     }
 
-    .cloud::before,
-    .cloud::after {
+    .kasukabetsumugi-cloud::before,
+    .kasukabetsumugi-cloud::after {
       content: '';
       position: absolute;
       background-color: rgba(255, 255, 255, 0.8);
@@ -339,7 +339,7 @@
     }
 
     /* 创建不同大小的云朵 */
-    .cloud:nth-child(1) {
+    .kasukabetsumugi-cloud:nth-child(1) {
       width: 8px;
       height: 4px;
       top: 5%;
@@ -347,25 +347,25 @@
       animation-delay: 0.3s;
     }
 
-    .cloud:nth-child(1)::before {
+    .kasukabetsumugi-cloud:nth-child(1)::before {
       width: 6px;
       height: 6px;
       top: -3px;
       left: 2px;
     }
 
-    .cloud:nth-child(1)::after {
+    .kasukabetsumugi-cloud:nth-child(1)::after {
       width: 4px;
       height: 4px;
       top: -2px;
       right: 1px;
     }
 
-    .dummy:checked~.clouds .cloud:nth-child(1) {
+    .kasukabetsumugi-dummy:checked~.kasukabetsumugi-clouds .kasukabetsumugi-cloud:nth-child(1) {
       left: 26%;
     }
 
-    .cloud:nth-child(2) {
+    .kasukabetsumugi-cloud:nth-child(2) {
       width: 10px;
       height: 5px;
       top: 92%;
@@ -373,25 +373,25 @@
       animation-delay: 0.8s;
     }
 
-    .cloud:nth-child(2)::before {
+    .kasukabetsumugi-cloud:nth-child(2)::before {
       width: 7px;
       height: 7px;
       top: -4px;
       left: 3px;
     }
 
-    .cloud:nth-child(2)::after {
+    .kasukabetsumugi-cloud:nth-child(2)::after {
       width: 5px;
       height: 5px;
       top: -3px;
       right: 2px;
     }
 
-    .dummy:checked~.clouds .cloud:nth-child(2) {
+    .kasukabetsumugi-dummy:checked~.kasukabetsumugi-clouds .kasukabetsumugi-cloud:nth-child(2) {
       left: 75%;
     }
 
-    .cloud:nth-child(3) {
+    .kasukabetsumugi-cloud:nth-child(3) {
       width: 6px;
       height: 3px;
       top: 92%;
@@ -399,21 +399,21 @@
       animation-delay: 1.2s;
     }
 
-    .cloud:nth-child(3)::before {
+    .kasukabetsumugi-cloud:nth-child(3)::before {
       width: 4px;
       height: 4px;
       top: -2px;
       left: 2px;
     }
 
-    .cloud:nth-child(3)::after {
+    .kasukabetsumugi-cloud:nth-child(3)::after {
       width: 3px;
       height: 3px;
       top: -1px;
       right: 1px;
     }
 
-    .dummy:checked~.clouds .cloud:nth-child(3) {
+    .kasukabetsumugi-dummy:checked~.kasukabetsumugi-clouds .kasukabetsumugi-cloud:nth-child(3) {
       left: 24%;
     }
   </style>
@@ -423,25 +423,25 @@
   <div class="container">
     <h3>Theme Switcher</h3>
     <p>Light and dark</p>
-    <label class="theme-switch" for="theme">
-      <input type="checkbox" id="theme" name="theme" class="dummy">
-      <div class="moon">
-        <div class="icon"></div>
+    <label class="kasukabetsumugi-theme-switch" for="theme">
+      <input type="checkbox" id="theme" name="theme" class="kasukabetsumugi-dummy">
+      <div class="kasukabetsumugi-moon">
+        <div class="kasukabetsumugi-icon"></div>
       </div>
-      <div class="sun">
-        <div class="icon"></div>
+      <div class="kasukabetsumugi-sun">
+        <div class="kasukabetsumugi-icon"></div>
       </div>
-      <div class="stars">
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
+      <div class="kasukabetsumugi-stars">
+        <div class="kasukabetsumugi-star"></div>
+        <div class="kasukabetsumugi-star"></div>
+        <div class="kasukabetsumugi-star"></div>
+        <div class="kasukabetsumugi-star"></div>
+        <div class="kasukabetsumugi-star"></div>
       </div>
-      <div class="clouds">
-        <div class="cloud"></div>
-        <div class="cloud"></div>
-        <div class="cloud"></div>
+      <div class="kasukabetsumugi-clouds">
+        <div class="kasukabetsumugi-cloud"></div>
+        <div class="kasukabetsumugi-cloud"></div>
+        <div class="kasukabetsumugi-cloud"></div>
       </div>
     </label>
     <label id="cur">

@@ -8,6 +8,8 @@
 - [🇺🇸 English](#english)
 - [🇨🇳 中文](#中文)
 
+![switch](example.gif)
+
 ---
 
 ## 中文
@@ -15,6 +17,8 @@
 ### 概述
 
 一个使用纯 HTML 和 CSS 构建的美观交互式主题切换器组件。具有流畅动画、装饰元素和直观的月亮/太阳切换设计。
+
+**所有样式均以 kasukabetsumugi-开头，避免干扰已有样式**，你可以按照需要改成自己喜欢的。
 
 ### ✨ 特性
 
@@ -88,6 +92,8 @@ MIT 许可证 - 可自由用于您的项目！
 ### Overview
 
 A beautiful and interactive theme switcher component built with pure HTML and CSS. Features smooth animations, decorative elements, and an intuitive moon/sun toggle design.
+
+**Every style starts with kasukabetsumugi- to avoid conflicts with existing styles**. You can change it to your preferred naming convention as needed.
 
 ### ✨ Features
 
