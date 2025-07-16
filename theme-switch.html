@@ -3,6 +3,25 @@
 
 <head>
   <style>
+    /**
+     * Theme Switch Component
+     * 
+     * @project: theme-switch
+     * @author: baendlorel
+     * @version: 1.0.0
+     * @description: An elegant animated theme switcher with moon/sun toggle
+     * @repository: https://github.com/baendlorel/theme-switch
+     * @license: MIT
+     * @created: 2025
+     * 
+     * Features:
+     * - Smooth CSS animations with cubic-bezier easing
+     * - Moon and sun icons with gradient backgrounds
+     * - Twinkling stars animation in dark mode
+     * - CSS custom properties for easy customization
+     * - Responsive design with proper hover states
+     */
+
     .theme-switch {
       --ts-border: 1px;
       --ts-base: 20px;
@@ -13,6 +32,7 @@
       --ts-emoji-diameter: calc(var(--ts-base) * 2 - var(--ts-pad) * 2 - var(--ts-border) * 2);
       --ts-sun-x: calc(var(--ts-width) - var(--ts-emoji-diameter) - var(--ts-pad) - var(--ts-border));
       --ts-moon-x: calc(var(--ts-pad) + var(--ts-border));
+      --ts-func: cubic-bezier(0.23, 1, 0.32, 1);
       position: relative;
       display: inline-block;
       width: var(--ts-width);
@@ -22,7 +42,7 @@
       border-radius: calc(var(--ts-base) + var(--ts-border));
       cursor: pointer;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+      transition: all 0.8s var(--ts-func);
 
       background-color: #3F3F3F;
       border-color: #8e8e8e;
@@ -30,45 +50,45 @@
 
     .theme-switch:hover {}
 
-    .theme-switch .dummy {
+    .dummy {
       width: 0;
       height: 0;
       border: 0;
     }
 
-    .theme-switch .moon,
-    .theme-switch .sun {
+    .moon,
+    .sun {
       position: absolute;
       font-size: var(--ts-emoji-size);
       top: calc(var(--ts-pad) + var(--ts-border));
       width: var(--ts-emoji-diameter);
       height: var(--ts-emoji-diameter);
       border-radius: var(--ts-base);
-      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      transition: all 0.5s var(--ts-func);
     }
 
-    .theme-switch .icon::before {
+    .icon::before {
       position: absolute;
       width: 100%;
       height: 100%;
       text-align: center;
     }
 
-    .theme-switch .sun .icon::before {
+    .sun .icon::before {
       content: '☀️';
     }
 
-    .theme-switch .moon .icon::before {
+    .moon .icon::before {
       content: '🌙';
     }
 
-    .theme-switch .moon {
+    .moon {
       left: var(--ts-moon-x);
-      background: linear-gradient(145deg, #707070, #3f3f3f);
+      background: linear-gradient(145deg, #5a5a5a, #424242);
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
-    .theme-switch .sun {
+    .sun {
       left: var(--ts-sun-x);
       background: linear-gradient(145deg, #fffac1, #ffd06c);
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -76,22 +96,22 @@
 
 
     /* 当 checkbox 被选中时的样式 */
-    .theme-switch .dummy:not(:checked)~.moon {
+    .dummy:not(:checked)~.moon {
       left: var(--ts-moon-x);
       opacity: 1;
     }
 
-    .theme-switch .dummy:checked~.moon {
+    .dummy:checked~.moon {
       left: var(--ts-sun-x);
       opacity: 0;
     }
 
-    .theme-switch .dummy:not(:checked)~.sun {
+    .dummy:not(:checked)~.sun {
       left: var(--ts-moon-x);
       opacity: 0;
     }
 
-    .theme-switch .dummy:checked~.sun {
+    .dummy:checked~.sun {
       left: var(--ts-sun-x);
       opacity: 1;
     }
@@ -110,23 +130,24 @@
       right: 0;
       bottom: 0;
       opacity: 0;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.5s var(--ts-func);
     }
 
-    .theme-switch .dummy:not(:checked)~.stars {
-      opacity: 0.3;
+    .dummy:not(:checked)~.stars {
+      opacity: 0.45;
     }
 
     .star {
       position: absolute;
       background-color: white;
       border-radius: 50%;
-      animation: twinkle 3s infinite alternate;
+      animation: twinkle 2.4s infinite alternate;
+      transition: left 1.5s var(--ts-func);
     }
 
     @keyframes twinkle {
       0% {
-        opacity: 0.3;
+        opacity: 0.2;
       }
 
       100% {
@@ -138,41 +159,61 @@
     .star:nth-child(1) {
       width: 2px;
       height: 2px;
-      top: 4px;
-      left: 45px;
+      top: 8%;
+      left: 48%;
       animation-delay: 0.2s;
+    }
+
+    .dummy:checked~.stars .star:nth-child(1) {
+      left: 148%;
     }
 
     .star:nth-child(2) {
       width: 3px;
       height: 3px;
-      top: 10px;
-      left: 12px;
+      top: 20%;
+      left: 16%;
       animation-delay: 0.5s;
+    }
+
+    .dummy:checked~.stars .star:nth-child(2) {
+      left: 116%;
     }
 
     .star:nth-child(3) {
       width: 2px;
       height: 2px;
-      top: 31px;
-      left: 41px;
+      top: 72%;
+      left: 51%;
       animation-delay: 0.8s;
+    }
+
+    .dummy:checked~.stars .star:nth-child(3) {
+      left: 151%;
     }
 
     .star:nth-child(4) {
       width: 3px;
       height: 3px;
-      top: 10px;
-      left: 67px;
+      top: 20%;
+      left: 80%;
       animation-delay: 1.1s;
+    }
+
+    .dummy:checked~.stars .star:nth-child(4) {
+      left: 180%;
     }
 
     .star:nth-child(5) {
       width: 2px;
       height: 2px;
-      top: 26px;
-      left: 59px;
+      top: 52%;
+      left: 72%;
       animation-delay: 1.4s;
+    }
+
+    .dummy:checked~.stars .star:nth-child(5) {
+      left: 172%;
     }
   </style>
 </head>
